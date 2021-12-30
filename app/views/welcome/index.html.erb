@@ -1,10 +1,7 @@
 <h1>Welcome <%= @my_name %></h1>
 <p><%= date_br(Date.today) %></p>
-<ul>
-  <li>
-  <%= link_to "Coins Register", coins_path %>
-  </li>
-</ul>
+
+<%= render "menu" %>
 
 <p><%= check_environment %></p>
 
