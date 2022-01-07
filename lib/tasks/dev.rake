@@ -5,29 +5,26 @@ namespace :dev do
   task setup: :environment do
 
     if Rails.env.development?
-      spinner = TTY::Spinner.new("[:spinner] Deleting database...", format: :pulse_2)
-      spinner.auto_spin
-      %x(rails db:drop)
-      spinner.success()
-
-      spinner = TTY::Spinner.new("[:spinner] Creating database...", format: :pulse_2)
-      spinner.auto_spin
-      %x(rails db:create)
-      spinner.success()
-
-      spinner = TTY::Spinner.new("[:spinner] Executing migrates...", format: :pulse_2)
-      spinner.auto_spin
-      %x(rails db:migrate)
-      spinner.success()
-
-      spinner = TTY::Spinner.new("[:spinner] Seed database...", format: :pulse_2)
-      spinner.auto_spin
-      %x(rails db:seed)
-      spinner.success('Done!')
- 
+      show_spinner("Deleting database") { %x(rails db:drop) }
+      show_spinner("Creating database") { %x(rails db:create) }
+      show_spinner("Executing migrates") { %x(rails db:migrate) }
+      show_spinner("Seed database", "Done!") { %x(rails db:seed) }
     else
       puts "You aren't in the development environment!"
     end
   end
 
+  private 
+    def show_spinner(start_msg, end_msg = nil)
+      spinner = TTY::Spinner.new("[:spinner] #{start_msg}...", format: :pulse_2)
+      spinner.auto_spin
+
+      yield
+
+      if end_msg != nil
+        spinner.success("#{end_msg}")
+      else
+        spinner.success()
+      end
+    end
 end
