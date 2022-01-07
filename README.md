@@ -8,14 +8,14 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+<code> 2.5 </code>
 
 * System dependencies
 
 * Configuration
 
-* Database creation
-
-* Database initialization
+* Database creation and initialization
+<code> rails dev setup </code>
 
 * How to run the test suite
 
