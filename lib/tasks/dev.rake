@@ -8,8 +8,8 @@ namespace :dev do
       show_spinner("Deleting database") { %x(rails db:drop) }
       show_spinner("Creating database") { %x(rails db:create) }
       show_spinner("Executing migrates") { %x(rails db:migrate) }
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
+      %x(rails dev:add_coins)
       show_spinner("Finishing") {}
     else
       puts "You aren't in the development environment!"
@@ -25,32 +25,38 @@ namespace :dev do
         {
           title: "Bitcoin",
           acronym: "BTC",
-          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+          mining_type: MiningType.find_by(acronym: 'PoW')
         },
         {
           title: "Ethereum",
           acronym: "ETH",
-          url_image: "https://www.ceiconsultoria.com.br/wp-content/uploads/ethereum.png"
+          url_image: "https://www.ceiconsultoria.com.br/wp-content/uploads/ethereum.png",
+          mining_type: MiningType.all.sample
         },
         {
           title: "Dash",
           acronym: "DASH",
-          url_image: "https://cryptologos.cc/logos/dash-dash-logo.png"
+          url_image: "https://cryptologos.cc/logos/dash-dash-logo.png",
+          mining_type: MiningType.all.sample
         },
         {
           title: "Dogecoin",
           acronym: "DOGE",
-          url_image: "https://bitpreco.com/assets/img/coins/dogecoin/bitpreco-moeda-dogecoin.svg"
+          url_image: "https://bitpreco.com/assets/img/coins/dogecoin/bitpreco-moeda-dogecoin.svg",
+          mining_type: MiningType.all.sample
         },
         {
           title: "Tether",
           acronym: "USDT",
-          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+          mining_type: MiningType.all.sample
         },
         {
           title: "Solana",
           acronym: "SOL",
-          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png"
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png",
+          mining_type: MiningType.all.sample
         }
       ]
 
