@@ -29,6 +29,11 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= form.label :mining_type_id %>
+    <%= form.select("mining_type_id", MiningType.all.collect{|m| [ m.description, m.id ] } ) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
