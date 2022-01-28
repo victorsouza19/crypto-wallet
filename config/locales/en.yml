@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  links:
+    edit: "Edit"
+    show: "Show"
+    destroy: "Destroy"
+  confirm: "Are you sure?"

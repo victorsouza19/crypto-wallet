@@ -1,6 +1,9 @@
 <h1>Welcome <%= @my_name %></h1>
 <p><%= getLocale(I18n.locale) %></p> 
-<p><%= Date.today %></p>
+<p><%= l(Date.today) %></p>
+<p> <%= t('hello') %> </p>
+<button>USA </button>
+<button>Brazil </button>
 
 <%= render "menu" %>
 
