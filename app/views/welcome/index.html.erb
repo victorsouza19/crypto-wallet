@@ -1,4 +1,6 @@
-<h1>Welcome <%= @my_name %></h1>
+<h1>Welcome <%= @my_name %> | Session data: <%= session[:username] %></h1>
+
+<h3> Cookie data: <%= cookies[:course] %> </h3>
 <p><%= t('actual_locale') %></p> 
 <p><%= l(Date.today) %></p>
 <p> <%= t('hello') %> </p>
