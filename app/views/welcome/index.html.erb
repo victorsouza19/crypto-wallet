@@ -1,11 +1,16 @@
+<nav>
+  <ul>
+    <li> <%= link_to 'Portuguese', root_path(locale: 'pt-BR') %> </li>
+    <li> <%= link_to 'English', root_path(locale: 'en') %> </li>
+  </ul>
+</nav>
+
 <h1>Welcome <%= @my_name %> | Session data: <%= session[:username] %></h1>
 
 <h3> Cookie data: <%= cookies[:course] %> </h3>
 <p><%= t('actual_locale') %></p> 
 <p><%= l(Date.today) %></p>
 <p> <%= t('hello') %> </p>
-<button>USA </button>
-<button>Brazil </button>
 
 <%= render "menu" %>
 
