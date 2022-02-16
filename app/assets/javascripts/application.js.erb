@@ -14,5 +14,9 @@
 //= require activestorage
 //= require turbolinks
 
-<% msg = Time.now.hour < 12 ? "Good morning!" : "Hello!" %>
-alert(" <%= msg %> ");
+<% msg = Time.now.hour < 12 ? "Good morning!" : nil %>
+
+<% if msg != nil %>
+  alert(" <%= msg %> ");
+<% end %>
+
