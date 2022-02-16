@@ -10,12 +10,12 @@
     <%= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>
     
     <%= javascript_include_tag   'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag   'jquery', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag   'notify', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag   params[:controller], 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= yield %>
+
+    <script>$.notify("Ready", 'success')</script>
   </body>
 </html>
